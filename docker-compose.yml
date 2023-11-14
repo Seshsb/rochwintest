@@ -15,8 +15,6 @@ services:
     env_file:
       - config/.env
     container_name: rochwin
-    command:
-      - "python /rochwintest/manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/rochwintest
     ports:
