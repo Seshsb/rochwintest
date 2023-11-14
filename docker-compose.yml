@@ -14,9 +14,8 @@ services:
     build: .
     env_file:
       - config/.env
-    container_name: roulette
+    container_name: rochwin
     command:
-      - python manage.py migrate
       - python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
