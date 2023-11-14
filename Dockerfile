@@ -14,5 +14,6 @@ COPY . .
 
 CMD ["python", "manage.py", "migrate"]
 
-# Запускаем Django-сервер
+RUN python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', '$DJANGO_SUPERUSER_PASSWORD')"
+
 CMD ["python", "manage.py", "runserver", "0.0.0.0:7777"]
