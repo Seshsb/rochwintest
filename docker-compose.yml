@@ -15,6 +15,7 @@ services:
     env_file:
       - config/.env
     container_name: rochwin
+    command: [ "/rochwintest/entrypoint.sh" ]
     volumes:
       - .:/rochwintest
     ports:
@@ -26,4 +27,3 @@ services:
       options:
         max-size: "5m"
         max-file: "5"
-
