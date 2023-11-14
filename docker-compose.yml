@@ -13,7 +13,7 @@ services:
   app:
     build: .
     env_file:
-      - .env
+      - config/.env
     container_name: roulette
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
