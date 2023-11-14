@@ -15,4 +15,4 @@ COPY . .
 CMD ["python", "manage.py", "migrate"]
 
 # Запускаем Django-сервер
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:7777"]
