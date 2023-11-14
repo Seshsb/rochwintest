@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  db:
+    image: postgres:15
+    container_name: db_rochwin
+    command:
+      -p 5432
+    expose:
+      - 5432
+    env_file:
+      - config/.env
+
+  app:
+    build: .
+    env_file:
+      - .env
+    container_name: roulette
+    command: [ "/roulette/app.sh" ]
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
