@@ -26,7 +26,7 @@ class Product(models.Model):
     price = models.IntegerField('Цена')
 
     def __str__(self):
-        return f'{self.name}'
+        return self.name
 
 
 class Order(models.Model):
@@ -34,7 +34,7 @@ class Order(models.Model):
     products = models.ManyToManyField(Product, through='OrderM2M', related_name='order_products')
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='order')
     price = models.IntegerField('Общая цена', default=1000)
-    date = models.DateTimeField(default=timezone.now())
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.id}: {self.client}: {self.employee}: Дата: {self.date}'
